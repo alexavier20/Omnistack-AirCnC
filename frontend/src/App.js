@@ -11,9 +11,10 @@ function App() {
     event.preventDefault();
     
     const response = await api.post('/sessions', { email });
-    alert(response);
+    const { _id } = response.data;
+    localStorage.setItem('user', _id);
   }
-
+ 
   return (
     <div className="container"> 
       <img src={logo} alt="logoAirCnC"/> 
